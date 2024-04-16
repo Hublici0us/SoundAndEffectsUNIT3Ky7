@@ -6,6 +6,7 @@ public class RepeatingBackground : MonoBehaviour
 {
     Vector3 startPos;
     float repeatWidth;
+    
 
     // Start is called before the first frame update
     void Start()
