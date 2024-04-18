@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     private float speed = 30;
+    public float speedAdd = 20;
+    private float timeMod = 2;
     private float leftBoundary = -15;
     PlayerController playerControl;
 
@@ -25,6 +27,15 @@ public class MoveLeft : MonoBehaviour
         if (transform.position.x < leftBoundary && gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            Time.timeScale = timeMod;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 }

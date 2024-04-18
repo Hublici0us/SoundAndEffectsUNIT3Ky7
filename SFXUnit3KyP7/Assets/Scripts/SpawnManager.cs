@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
+    public GameObject[] obstaclePrefabs;
     private Vector3 spawnPos = new Vector3(25, 0, 0);
 
     public float startSpawnRate = 2;
     public float SpawnRate = 1.5f;
+    public float maxSpawnRate = 4f;
 
     private PlayerController playerControl;
 
@@ -17,7 +18,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         playerControl = GameObject.Find("Player").GetComponent<PlayerController>();
-        InvokeRepeating("SpawnObstacle", startSpawnRate, SpawnRate);
+        InvokeRepeating("SpawnObstacle", startSpawnRate, Random.Range(SpawnRate,maxSpawnRate));
     }
 
     // Update is called once per frame
@@ -28,10 +29,11 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle()
     {
+        int obstacleArray = Random.Range(0, obstaclePrefabs.Length);
 
         if (playerControl.gameOver == false)
         {
-            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            Instantiate(obstaclePrefabs[obstacleArray], spawnPos, obstaclePrefabs[obstacleArray].transform.rotation);
         }
     }
 }
