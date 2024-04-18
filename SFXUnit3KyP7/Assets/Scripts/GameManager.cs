@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     private int score;
-    public int scoreCounter = 1;
+    public int scoreCounter = 20;
 
     PlayerController playerController;
 
@@ -17,11 +17,11 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void FixedUpdate()
+    { 
         if (playerController.gameOver == false)
         {
-            score += scoreCounter;
+            score = score + scoreCounter;
             Debug.Log("Score :" + score);
         }
     }
