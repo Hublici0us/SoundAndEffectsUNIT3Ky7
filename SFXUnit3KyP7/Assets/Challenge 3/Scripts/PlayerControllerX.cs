@@ -57,6 +57,7 @@ public class PlayerControllerX : MonoBehaviour
             gameOver = true;
             Debug.Log("Game Over!");
             Destroy(other.gameObject);
+
         } 
 
         // if player collides with money, fireworks
@@ -68,11 +69,10 @@ public class PlayerControllerX : MonoBehaviour
 
         }
 
-        else if (other.gameObject.CompareTag("Ground"))
+        else if (other.gameObject.CompareTag("Ground") && !gameOver)
         {
             playerRb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
         }
-
     }
 
 }

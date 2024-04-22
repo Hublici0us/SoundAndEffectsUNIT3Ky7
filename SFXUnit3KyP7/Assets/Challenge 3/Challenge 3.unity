@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
-  bounceForce: 0.2
+  bounceForce: 15
   floatForce: 50
   upBound: 14
   explosionParticle: {fileID: 1171260740}
